@@ -929,6 +929,7 @@
   <java-symbol type="string" name="shutdown_confirm" />
   <java-symbol type="string" name="shutdown_confirm_question" />
   <java-symbol type="string" name="shutdown_progress" />
+  <java-symbol type="string" name="reboot_progress" />
   <java-symbol type="string" name="sim_added_message" />
   <java-symbol type="string" name="sim_added_title" />
   <java-symbol type="string" name="sim_removed_message" />
