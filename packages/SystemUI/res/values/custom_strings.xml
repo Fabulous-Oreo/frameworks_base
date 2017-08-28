@@ -21,4 +21,5 @@
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Volume panel</string>
 
+    <string name="global_action_restart_advanced">Advanced reboot</string>
 </resources>
