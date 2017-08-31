@@ -80,6 +80,7 @@ public class CommandQueue extends IStatusBar.Stub {
     private static final int MSG_HANDLE_SYSTEM_KEY             = 33 << MSG_SHIFT;
     private static final int MSG_SHOW_GLOBAL_ACTIONS           = 34 << MSG_SHIFT;
     private static final int MSG_SHOW_SHUTDOWN_UI              = 35 << MSG_SHIFT;
+    private static final int MSG_TOGGLE_CAMERA_FLASH           = 36 << MSG_SHIFT;
 
     public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
@@ -138,6 +139,8 @@ public class CommandQueue extends IStatusBar.Stub {
         default void handleSystemKey(int arg1) { }
         default void handleShowGlobalActionsMenu() { }
         default void handleShowShutdownUi(boolean isReboot, String reason) { }
+
+        default void toggleCameraFlash() { }
     }
 
     @VisibleForTesting
@@ -440,6 +443,14 @@ public class CommandQueue extends IStatusBar.Stub {
         }
     }
 
+    @Override
+    public void toggleCameraFlash() {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_TOGGLE_CAMERA_FLASH);
+            mHandler.sendEmptyMessage(MSG_TOGGLE_CAMERA_FLASH);
+        }
+    }
+
     private final class H extends Handler {
         private H(Looper l) {
             super(l);
@@ -624,6 +635,11 @@ public class CommandQueue extends IStatusBar.Stub {
                 case MSG_SHOW_SHUTDOWN_UI:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).handleShowShutdownUi(msg.arg1 != 0, (String) msg.obj);
+                    }
+                    break;
+                case MSG_TOGGLE_CAMERA_FLASH:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).toggleCameraFlash();
                     }
                     break;
             }
