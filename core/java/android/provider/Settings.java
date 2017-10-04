@@ -7168,6 +7168,18 @@ public final class Settings {
         public static final String NOTIFICATION_BADGING = "notification_badging";
 
         /**
+         * String to contain power menu actions
+         * @hide
+         */
+        public static final String POWER_MENU_ACTIONS = "power_menu_actions";
+
+        /**
+         * Whether to include options in power menu for rebooting into recovery or bootloader
+         * @hide
+         */
+        public static final String ADVANCED_REBOOT = "advanced_reboot";
+
+        /**
          * Comma separated list of QS tiles that have been auto-added already.
          * @hide
          */
@@ -7271,6 +7283,8 @@ public final class Settings {
             ASSIST_GESTURE_WAKE_ENABLED,
             VR_DISPLAY_MODE,
             NOTIFICATION_BADGING,
+            POWER_MENU_ACTIONS,
+            ADVANCED_REBOOT,
             QS_AUTO_ADDED_TILES,
             SCREENSAVER_ENABLED,
             SCREENSAVER_COMPONENTS,
