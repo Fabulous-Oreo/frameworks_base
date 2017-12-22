@@ -37,4 +37,6 @@
 
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">音量面板</string>
+
+    <string name="global_action_restart_advanced">高级重启</string>
 </resources>
