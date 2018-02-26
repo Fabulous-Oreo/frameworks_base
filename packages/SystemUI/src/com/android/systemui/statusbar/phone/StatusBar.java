@@ -812,6 +812,15 @@ public class StatusBar extends SystemUI implements DemoMode,
                 updateTheme();
                 return;
             }
+	    else if (uri.equals(Settings.System.getUriFor(Settings.System.RELOAD_THEMES))) {
+                int reloadThemes = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.RELOAD_THEMES, 0);
+                if (reloadThemes == 1)
+                {
+                  updateTheme();
+                  Settings.System.putInt(mContext.getContentResolver(), Settings.System.RELOAD_THEMES, 0);
+                }
+            }
             update();
         }
 
